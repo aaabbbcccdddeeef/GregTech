@@ -65,6 +65,9 @@ public interface ILDEndpoint {
      */
     BlockPos getPos();
 
+    @Nullable
+    TileEntity getNeighbor(EnumFacing facing);
+
     static ILDEndpoint tryGet(World world, BlockPos pos) {
         TileEntity te = world.getTileEntity(pos);
         if (te instanceof IGregTechTileEntity) {

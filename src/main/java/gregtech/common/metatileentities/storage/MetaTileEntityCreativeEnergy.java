@@ -167,10 +167,10 @@ public class MetaTileEntityCreativeEnergy extends MetaTileEntity implements IEne
         }
         ampsReceived = 0;
         if (!active || !source || voltage <= 0 || amps <= 0) return;
-        int ampsUsed = 0;
+        long ampsUsed = 0;
         for (EnumFacing facing : EnumFacing.values()) {
             EnumFacing opposite = facing.getOpposite();
-            TileEntity tile = getWorld().getTileEntity(getPos().offset(facing));
+            TileEntity tile = getNeighbor(facing);
             if (tile != null) {
                 IEnergyContainer container = tile.getCapability(GregtechCapabilities.CAPABILITY_ENERGY_CONTAINER, opposite);
                 if (container == null || !container.inputsEnergy(opposite) || container.getEnergyCanBeInserted() == 0)
