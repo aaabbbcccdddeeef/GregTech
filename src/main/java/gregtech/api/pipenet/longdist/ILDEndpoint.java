@@ -2,13 +2,14 @@ package gregtech.api.pipenet.longdist;
 
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
+import gregtech.api.metatileentity.interfaces.INeighborCache;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public interface ILDEndpoint {
+public interface ILDEndpoint extends INeighborCache {
 
     /**
      * @return the current type of this endpoint (input, output or none)
@@ -59,14 +60,6 @@ public interface ILDEndpoint {
      * @return the ld pipe type for this endpoint
      */
     LongDistancePipeType getPipeType();
-
-    /**
-     * @return pos in world
-     */
-    BlockPos getPos();
-
-    @Nullable
-    TileEntity getNeighbor(EnumFacing facing);
 
     static ILDEndpoint tryGet(World world, BlockPos pos) {
         TileEntity te = world.getTileEntity(pos);
