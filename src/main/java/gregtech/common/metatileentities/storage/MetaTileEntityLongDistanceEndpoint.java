@@ -18,6 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -249,7 +250,7 @@ public abstract class MetaTileEntityLongDistanceEndpoint extends MetaTileEntity 
     }
 
     @Override
-    public void onNeighborChanged(EnumFacing facing) {
+    public void onNeighborChanged(@NotNull EnumFacing facing) {
     }
 
     @Override
